@@ -128,7 +128,7 @@ for pth in paths:
         if rv2.stderr: print(rv2.stderr, end='', file=sys.stderr)
         if rv2.stdout: print(rv2.stdout, end='')
 
-loch = f"{localchanges} repo{'' if localchanges==1 else 's'} with local changes{Fore.RESET}"
+loch = f"{localchanges} repo{'' if localchanges==1 else 's'} with local changes{Fore.RESET}" if localchanges else ''
 if badcount:
     if localchanges: loch = f" {Fore.YELLOW}and {loch}"
     print(f"{Fore.RED}# {badcount} issue{'' if badcount==1 else 's'}{Fore.RESET}{loch}")
