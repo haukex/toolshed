@@ -25,6 +25,24 @@ Node.js and TypeScript
 
 - `npm install -g typescript`
 
+#### TypeScript Project
+
+<https://www.typescriptlang.org/docs/>
+
+- To initialize a `tsconfig.json` in the current directory:
+  `tsc --init`
+ (see also <https://github.com/tsconfig/bases/blob/main/bases/recommended.json>)
+
+Visual Studio Code
+------------------
+
+<https://code.visualstudio.com/> or via Microsoft Store
+
+To connect to a VS Code Server (such as an Ubuntu VM):
+- In VSCode, in the Remote-SSH settings, the *absolute* path
+  to the `~/.ssh/config` must be set, and the permissions of
+  `~/.ssh/` must be restricted to just the users'.
+
 
 Author, Copyright, and License
 ------------------------------
