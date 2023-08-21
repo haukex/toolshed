@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>HTML5 Template</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+		integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous">
+	<style>
+		body { margin: 1em; }
+		.text { font-family: Ubuntu, Calibri, "Droid Sans", Tahoma, Arial, Helvetica, sans-serif; }
+		pre,tt,textarea,kbd,var,code,samp {
+			font-family: "Ubuntu Mono", Consolas, "Droid Sans Mono", "Lucida Console", "Courier New", Courier, monospace;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+		integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+	<script>
+		"use strict";
+		$(() => {
+			$("#my_button").click(() => alert("You clicked the button!"));
+			$("#jquerytest").text("I was set dynamically by jQuery.");
+		});
+	</script>
+</head>
+<body>
+	<div class="text">
+		<h1>Example</h1>
+		<p>I am a paragraph. <button id="my_button">Hello!</button></p>
+		<div id="jquerytest"></div>
+	</div>
+</body>
+</html>
