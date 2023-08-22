@@ -36,10 +36,9 @@ Node.js and TypeScript
 Visual Studio Code
 ------------------
 
-<https://code.visualstudio.com/> or via Microsoft Store
-
-To connect to a VS Code Server (such as an Ubuntu VM):
-- In VSCode, in the Remote-SSH settings,
+- Install from <https://code.visualstudio.com/> or via Microsoft Store
+- Change the setting `telemetry.telemetryLevel` to `off`.
+- To connect to a VS Code Server (such as an Ubuntu VM), in the Remote-SSH settings:
   - The *absolute* path to the `~/.ssh/config` must be set
   - And the permissions of `~/.ssh/` must be restricted to just the users'
   - In order to re-use a `ssh-agent` that was started in Git Bash as per
