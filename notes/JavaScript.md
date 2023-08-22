@@ -39,9 +39,18 @@ Visual Studio Code
 <https://code.visualstudio.com/> or via Microsoft Store
 
 To connect to a VS Code Server (such as an Ubuntu VM):
-- In VSCode, in the Remote-SSH settings, the *absolute* path
-  to the `~/.ssh/config` must be set, and the permissions of
-  `~/.ssh/` must be restricted to just the users'.
+- In VSCode, in the Remote-SSH settings,
+  - The *absolute* path to the `~/.ssh/config` must be set
+  - And the permissions of `~/.ssh/` must be restricted to just the users'
+  - In order to re-use a `ssh-agent` that was started in Git Bash as per
+    <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows>,
+    the "Remote.SSH" Path setting must be set to the `ssh.exe` from
+    Git, e.g. `C:\Users\USER\AppData\Local\Programs\Git\usr\bin\ssh.exe`
+    (the `ssh.exe` in `C:\Windows\System32\OpenSSH` is not compatible and
+    running it breaks a running `ssh-agent`'s socket)
+    - Alternatively (untested by me), it should be possible to configure the Windows OpenSSH version to
+      access Pageant: <https://the.earth.li/~sgtatham/putty/0.78/htmldoc/Chapter9.html#pageant-cmdline-openssh>
+      (and for Git for Windows to use that OpenSSH or even Plink instead of its own too)
 
 
 Author, Copyright, and License
