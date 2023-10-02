@@ -55,7 +55,7 @@ An alternative I haven't tested yet: <https://launchpad.net/~deadsnakes/+archive
 Windows Notes
 -------------
 
-During install, I usually choose `autocrlf=input`.
+During Git install, I usually choose `autocrlf=input`.
 
 Getting `python3` to reference `python` on Win 10 (because `python3.exe`
 opens the Store), shown from Git Bash:
