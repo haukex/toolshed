@@ -10,7 +10,7 @@ trap 'set +e; popd >/dev/null 2>&1; rm -rf "$TEMPDIR"' EXIT
 pushd "$TEMPDIR" >/dev/null
 
 # NOTE only one "trap ... EXIT" per script!
-#TEMPFILE=" $( mktemp ) "
+#TEMPFILE="$( mktemp )"
 #trap 'rm -f "$TEMPFILE"' EXIT
 
 # Sources:
