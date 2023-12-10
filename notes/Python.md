@@ -75,6 +75,40 @@ To apply execute permissions to files on Windows:
     git ls-files --stage
     git update-index --chmod=+x <filenames>
 
+Windows Embeddable Python
+-------------------------
+
+1. Download and extract the embeddable version of Python
+
+   1. In all of the following commands, make sure to be running
+      the `python.exe` from this version
+
+2. As per https://stackoverflow.com/a/48906746 do this:
+
+   1. In `python3*._pth`, uncomment the `import site` command.
+   2. As per https://pip.pypa.io/en/stable/installation/
+      download https://bootstrap.pypa.io/get-pip.py and run it
+
+3. As per https://stackoverflow.com/a/44169516 do this:
+
+   1. Your local Windows Python installation should be the same version
+      as the embeddable Python.
+   2. Copy the following items over into the root directory of the
+      embeddable Python:
+      - directory `tcl`
+      - directory `Lib/tkinter`
+      - from the `DLLs` folder: `_tkinter.pyd`, `tcl86t.dll`, `tk86t.dll`, `zlib1.dll`
+
+4. To add `igbdatatools` support:
+
+   1. Download https://github.com/haukex/igbdatatools/archive/refs/heads/main.zip
+   2. Unpack this to, for example, `igbdatatools-HASH` in the root directory
+      of the embeddable Python
+   3. Modify `python3*._pth` and add the directory name (just `igbdatatools-HASH`)
+      after the dot `.` (because embeddable Python doesn't use PYTHONPATH)
+   4. Can comment out `pyicu` from `requirements.txt` if not needed
+   5. Install `requirements.txt` modules (`..\python.exe -m pip install ...`)
+
 Python Versions
 ---------------
 
