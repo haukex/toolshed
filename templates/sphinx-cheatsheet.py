@@ -34,6 +34,7 @@ class Foo(NamedTuple):
         - Class attributes: :attr:`datetime.datetime.year`
         - Exceptions: :exc:`RuntimeError`
         - Builtin constants: :obj:`True`, :obj:`False`, :obj:`None`
+        - :meth:`custom link text like: Path.rglob('*')<pathlib.Path.rglob>`
 
         .. warning:: This is how to make a warning.
             https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-warning
@@ -48,6 +49,6 @@ class Foo(NamedTuple):
         .. seealso::
 
             https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-seealso
-                Longer-form see also redered as box
+                Longer-form "see also" rendered as box
         """
         return blah
