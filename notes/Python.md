@@ -75,6 +75,14 @@ To apply execute permissions to files on Windows:
     git ls-files --stage
     git update-index --chmod=+x <filenames>
 
+You can add `make` to Git Bash as follows:
+
+- Download `make-*-without-guile-w32-bin.zip`
+  from <https://sourceforge.net/projects/ezwinports/files/>
+- Unpack and merge into `Git/mingw64/`
+  (e.g. `$HOME/AppData/Local/Programs/Git/mingw64`)
+  without overwriting any files
+
 Windows Embeddable Python
 -------------------------
 
