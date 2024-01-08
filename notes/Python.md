@@ -64,6 +64,10 @@ opens the Store), shown from Git Bash:
     cd "$HOME/AppData/Local/Programs/Python/Python311/"
     cp python.exe python3.exe
 
+In addition, an alias per Python version can be set up via e.g.:
+
+    echo -e '#!/bin/bash\n~/AppData/Local/Programs/Python/Python312/python "$@"' >~/bin/python3.12
+
 In Windows 10, environment variables can be added for the current user via the
 Control Panel, in User Accounts you can find a setting "Change my environment
 variables", or you can press Windows+R and then enter:
