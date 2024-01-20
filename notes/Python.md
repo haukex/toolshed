@@ -11,34 +11,34 @@ Installing Python on Linux
     sudo apt-get install build-essential pkg-config libssl-dev libsqlite3-dev libgdbm-dev libgdbm-compat-dev \
         libc6-dev libbz2-dev libreadline-dev uuid-dev lzma-dev liblzma-dev libffi-dev tk-dev libncurses5-dev
     sudo apt-get build-dep python3 idle-python3.11
-    
+
     umask 022
     sudo mkdir -v /opt/python3.11.2
     sudo chown -c `id -u`:`id -g` /opt/python3.11.2
-    
+
     wget https://www.python.org/ftp/python/3.11.2/Python-3.11.2.tar.xz
     tar xJvf Python-3.11.2.tar.xz
-    
+
     cd Python-3.11.2
     ./configure --prefix=/opt/python3.11.2 --enable-optimizations
     make && make test && make install
-    
+
     sudo ln -snfv /opt/python3.11.2 /opt/python3
-    
+
     # in ~/.profile:
     test -d /opt/python3 && PATH="/opt/python3/bin${PATH:+:${PATH}}"
-    
+
     which python3
     which pip3
     which idle3
     python3 --version
-    
+
     python3 -m pip install --upgrade pip wheel
     # see requirements.txt for how to install those
-    
+
     # to add something to PYTHONPATH in .profile:
     export PYTHONPATH="$HOME/code/igbdatatools${PYTHONPATH:+:${PYTHONPATH}}"
-    
+
     # https://docs.python.org/3/download.html
     wget https://docs.python.org/3/archives/python-3.11.2-docs-html.tar.bz2
     tar xjvf python-3.11.2-docs-html.tar.bz2
@@ -61,12 +61,12 @@ Getting `python3` to reference `python` on Win 10 (because `python3.exe`
 opens the Store), shown from Git Bash:
 
     rm "$HOME/AppData/Local/Microsoft/WindowsApps/python3.exe"
-    cd "$HOME/AppData/Local/Programs/Python/Python311/"
+    cd "$HOME/AppData/Local/Programs/Python/Python312/"
     cp python.exe python3.exe
 
 In addition, an alias per Python version can be set up via e.g.:
 
-    echo -e '#!/bin/bash\n~/AppData/Local/Programs/Python/Python312/python "$@"' >~/bin/python3.12
+    for PV in 8 9 10 11 12 13; do echo -e \#\!"/bin/bash\n~/AppData/Local/Programs/Python/Python3$PV/python \"\$@\"" >~/bin/python3.$PV; done
 
 In Windows 10, environment variables can be added for the current user via the
 Control Panel, in User Accounts you can find a setting "Change my environment
