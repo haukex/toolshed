@@ -24,6 +24,13 @@ class Foo(NamedTuple):
     def hello(self, blah :int) -> int:
         """Just a test.
 
+        Verbatim blocks are indented and introduced by a double colon. ::
+
+            This is a verbatim block. It can also be introduced with just a
+            double colon in a paragraph by itself, which will be removed. If
+            the double colon is preceded by non-whitespace, it becomes a
+            single colon.
+
         How to reference various things:
 
         - Modules: :mod:`datetime`
