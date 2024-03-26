@@ -14,7 +14,7 @@ def main():
     # and for a fully tri-state-able option (that defaults to `None`):
     parser.add_argument('-z', '--quz', help="Quz On", action="store_true", default=None)
     parser.add_argument('-Z', '--no-quz', help="Quz Off", dest="quz", action="store_false", default=None)
-    parser.add_argument('--ignore-quz', help="No Quz", dest="quz", action="store_const")
+    parser.add_argument('--ignore-quz', help="No Quz", dest="quz", action="store_const", const=None)
 
     subparsers = parser.add_subparsers(dest='cmd', required=True)
 
