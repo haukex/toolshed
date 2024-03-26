@@ -5,6 +5,17 @@ from igbpyutils.file import autoglob, cmdline_rglob
 def main():
     parser = argparse.ArgumentParser(description='Template')
     parser.add_argument('-v', '--verbose', help="more output", action="store_true")
+
+    # the following defaults `foo` to `None` and doesn't generate a short equivalent to `--no-foo` (e.g. `-X`):
+    parser.add_argument('-x', '--foo', help="Foo?", action=argparse.BooleanOptionalAction)
+    # the following defaults bar to `False` (won't be `None`):
+    parser.add_argument('-y', '--bar', help="Bar On", action="store_true")
+    parser.add_argument('-Y', '--no-bar', help="Bar Off", dest="bar", action="store_false")
+    # and for a fully tri-state-able option (that defaults to `None`):
+    parser.add_argument('-z', '--quz', help="Quz On", action="store_true", default=None)
+    parser.add_argument('-Z', '--no-quz', help="Quz Off", dest="quz", action="store_false", default=None)
+    parser.add_argument('--ignore-quz', help="No Quz", dest="quz", action="store_const")
+
     subparsers = parser.add_subparsers(dest='cmd', required=True)
 
     parser_demo = subparsers.add_parser('demo', help='Demo')
