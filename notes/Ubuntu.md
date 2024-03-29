@@ -1,17 +1,9 @@
-My Notes on Markdown
-====================
+My Notes on Ubuntu
+==================
 
-[GitHub Flavored Markdown](https://github.github.com/gfm/) (GFM) is a strict superset of
-[CommonMark](https://spec.commonmark.org/current/).
+If you get `cloud-init` warnings on boot:
 
-According to <https://github.com/github/markup?tab=readme-ov-file#markups>,
-GitHub itself uses [Commonmarker](https://github.com/gjtorikian/commonmarker),
-which is actually just a wrapper of [Comrak](https://hrzn.ee/kivikakk/comrak#comrak-https-hrzn-ee-kivikakk-comrak).
-(which in turn states it is a "Rust port of [github's `cmark-gfm`](https://github.com/github/cmark)",
-however, the latter currently *appears* unmaintained to me).
-
-- <https://hrzn.ee/kivikakk/comrak#installation>
-- `comrak --gfm filename.md`
+    sudo touch /etc/cloud/cloud-init.disabled
 
 
 Author, Copyright, and License
