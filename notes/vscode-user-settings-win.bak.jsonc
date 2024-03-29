@@ -1,0 +1,28 @@
+// This is a backup of my ~/AppData/Roaming/Code/User/settings.json
+// NOTE that the user home directory was replaced with "~", but this must be an absolute path in the actual config!
+{
+    "telemetry.telemetryLevel": "off",
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.startupEditor": "none",
+    "files.trimTrailingWhitespace": true,
+    "remote.SSH.configFile": "~/.ssh/config",
+    "remote.SSH.path": "~/AppData/Local/Programs/Git/usr/bin/ssh.exe",
+    "remote.SSH.remotePlatform": { /* (content removed in backup) */ },
+    "git.openRepositoryInParentFolders": "never",
+    "git.inputValidation": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    // Currently no `ignoreAllSpaces`: https://github.com/Microsoft/vscode/issues/43026
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.experimental.showMoves": true,
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "github-actions.remote-name": "github",
+    "arduino.useArduinoCli": true,
+    "cSpell.language": "en,en-US",
+    "cSpell.words": [ "Hauke", "Dämpfling", "Daempfling", "haukex" ],
+    "cSpell.enableFiletypes": [ "perl" ],
+}
