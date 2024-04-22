@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3   # pylint: disable=invalid-name
 """This script checks a set of git repositories for synchronization with the server.
 
 Author, Copyright, and License
@@ -69,7 +69,7 @@ for pth in paths:
     out = f"{pth if args.verbose else pth.name} "
     print(out, end='', flush=True)
     if args.fetch:
-        print(f"fetch-", end='', flush=True)
+        print("fetch-", end='', flush=True)
         try:
             rv = subprocess.run( ['git','fetch','--quiet'],
                 cwd=pth.expanduser(), encoding='UTF-8', capture_output=True, check=True )
@@ -79,7 +79,7 @@ for pth in paths:
             badcount += 1
             continue
         else:
-            out += f"fetch-ok "
+            out += "fetch-ok "
             print(f"{Fore.GREEN}ok{Fore.RESET} ", end='', flush=True)
     try:
         rv = subprocess.run(
@@ -110,7 +110,7 @@ for pth in paths:
         if m := ahead_re.search(rv.stdout):
             ahead = int(m.group(1))
             behind = int(m.group(2))
-            if ahead==0 and behind==0:
+            if not ahead and not behind:
                 print(f"\r{Fore.GREEN}{out}{head=} {upstr=} up-to-date{lochg}")
             else:
                 print(f"{upstr=} {Fore.RED}we are {ahead=} {behind=}{lochg}")
