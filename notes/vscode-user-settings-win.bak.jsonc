@@ -23,7 +23,7 @@
     "python.analysis.inlayHints.functionReturnTypes": true,
     "python.analysis.inlayHints.variableTypes": true,
     "python.analysis.autoFormatStrings": true,
-    "python.analysis.autoImportCompletions": true,
+    "python.analysis.autoImportCompletions": false,
     "python.terminal.activateEnvInCurrentTerminal": true,
     "github-actions.remote-name": "github",
     "arduino.useArduinoCli": true,
