@@ -51,6 +51,10 @@ Visual Studio Code
       access Pageant: <https://the.earth.li/~sgtatham/putty/0.78/htmldoc/Chapter9.html#pageant-cmdline-openssh>
       (and for Git for Windows to use that OpenSSH or even Plink instead of its own too)
 
+- It's also possible to run VSCode on a server entirely and access it via a browser.
+  e.g. `code serve-web --host 127.0.0.1 --port 8000`
+  (may need to open port 8000 in the firewall, and/or if using port forwarding, bind to `0.0.0.0`)
+
 
 Author, Copyright, and License
 ------------------------------
