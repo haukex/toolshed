@@ -31,17 +31,19 @@ class Foo(NamedTuple):
             the double colon is preceded by non-whitespace, it becomes a
             single colon.
 
-        How to reference various things:
+        How to reference various things, as per
+        https://www.sphinx-doc.org/en/master/usage/domains/python.html#cross-referencing-python-objects
 
         - Modules: :mod:`datetime`
         - Functions: :func:`~time.time`
-        - Toplevel variable: :data:`CONSTANT`
+        - Toplevel variable: :data:`CONSTANT` or :const:`CONSTANT`
         - Class: :class:`datetime.datetime`
         - Method: :meth:`hello`
         - Class attributes: :attr:`datetime.datetime.year`
         - Exceptions: :exc:`RuntimeError`
         - Builtin constants: :obj:`True`, :obj:`False`, :obj:`None`
         - :meth:`custom link text like: Path.rglob('*')<pathlib.Path.rglob>`
+        - TODO: None of the above seem to work for enum members?
 
         .. warning:: This is how to make a warning.
             https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-warning
