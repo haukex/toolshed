@@ -24,6 +24,8 @@ class Foo(NamedTuple):
     def hello(self, blah :int) -> int:
         """Just a test.
 
+        `This is an external link <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#hyperlinks>`_
+
         Verbatim blocks are indented and introduced by a double colon. ::
 
             This is a verbatim block. It can also be introduced with just a
