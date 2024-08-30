@@ -134,6 +134,13 @@ ujson
 # https://docs.sqlalchemy.org/en/latest/
 SQLAlchemy
 
+# https://pypi.org/project/dataclasses-json/
+dataclasses-json
+# dataclasses-json has some minor drawbacks in types, e.g. it apparently silently accepts floats when the dataclass type is int.
+# orjson doesn't seem to have a way to deserialze dataclasses?
+# https://pypi.org/project/orjson/
+orjson
+
 # ##### Network / Web #####
 
 # https://docker-py.readthedocs.io/
