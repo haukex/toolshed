@@ -66,6 +66,8 @@ but otherwise, everything should work without them.
   ["Manual installation steps for older versions of WSL"](https://learn.microsoft.com/en-us/windows/wsl/install-manual)
   - Including the download and installation of the "WSL2 Linux kernel update package"
     (may need Admin rights)
+  - *But don't* install the Linux distro from the Microsoft Store, instead use e.g.
+    `wsl --install -d Ubuntu-24.04`
   - If `wsl --update` and/or `wsl --install -d ...` give an unexplained error message,
     try adding the option `--web-download`.
 - The `wsl --install -d ...` command must (also) be run by the non-admin user.
