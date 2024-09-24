@@ -88,6 +88,10 @@ You can add `make` to Git Bash as follows:
 Windows Embeddable Python
 -------------------------
 
+Note using [PyInstaller](https://pyinstaller.org/) may be easier depending on the project.
+(e.g. `pyinstaller --onefile --name exename path/to/__main__.py`, possibly with `--noconsole`
+or `--hide-console minimize-early`)
+
 1. Download and extract the embeddable version of Python
 
    1. In all of the following commands, make sure to be running
