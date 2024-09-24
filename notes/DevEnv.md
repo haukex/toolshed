@@ -75,6 +75,7 @@ but otherwise, everything should work without them.
 
 ### Docker Desktop
 
+- <https://www.docker.com/>
 - Requires Admin rights to install/update.
   - Configure Docker to use WSL2.
 - All users who want to use Docker must be a member of the local `docker-users` group.
@@ -86,6 +87,7 @@ but otherwise, everything should work without them.
 
 ### DevPod
 
+- <https://devpod.sh/>
 - Requires Admin rights to install.
 - Don't forget to configure your dotfiles repo if you have one
   ([GitHub docs](https://dotfiles.github.io/),
