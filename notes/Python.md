@@ -5,8 +5,8 @@ In this directory, `requirements.txt` is not the list of requirements
 for this project, instead it is my notes on all the Python modules
 I find interesting / useful.
 
-Installing Python on Linux
---------------------------
+Compiling Python from Source on Linux
+-------------------------------------
 
     sudo apt-get install build-essential pkg-config libssl-dev libsqlite3-dev libgdbm-dev libgdbm-compat-dev \
         libc6-dev libbz2-dev libreadline-dev uuid-dev lzma-dev liblzma-dev libffi-dev tk-dev libncurses5-dev
@@ -54,8 +54,6 @@ An alternative I haven't tested yet: <https://launchpad.net/~deadsnakes/+archive
 
 Windows Notes
 -------------
-
-During Git install, I usually choose `autocrlf=input`.
 
 Getting `python3` to reference `python` on Win 10 (because `python3.exe`
 opens the Store), shown from Git Bash:
