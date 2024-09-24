@@ -23,6 +23,12 @@ These are my notes on how I like to set up my development environment.
     - At the time of writing, I haven't been using DevPod very long, but it seems good so far.
       Notes:
       - Container initialization seems to be a bit slow sometimes?
+      - [`/workspaces` permissions](https://github.com/loft-sh/devpod/issues/1107) - Workaround
+        is to run ``sudo chown -R `id -u` /workspaces/*`` after building the container.
+      - [Rebuild does not run dotfiles](https://github.com/loft-sh/devpod/issues/1279) - Workaround
+        is that after a Rebuild, close VSCode, then use DevPod's "Open" to re-open it.
+      - [Where are the build logs?](https://github.com/loft-sh/devpod/issues/1278) - Not super
+        important, but could help with debugging.
 
 ## Windows
 
