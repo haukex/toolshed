@@ -4,6 +4,7 @@
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.startupEditor": "none",
     "editor.minimap.showSlider": "always",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
     "files.trimTrailingWhitespace": true,
     "remote.SSH.remotePlatform": { /* (content removed in backup) */ },
     "git.openRepositoryInParentFolders": "never",
@@ -13,6 +14,9 @@
     // Currently no `ignoreAllSpaces`: https://github.com/Microsoft/vscode/issues/43026
     "diffEditor.ignoreTrimWhitespace": true,
     "diffEditor.experimental.showMoves": true,
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": true
+    },
     "python.analysis.inlayHints.functionReturnTypes": true,
     "python.analysis.inlayHints.variableTypes": true,
     "python.analysis.autoFormatStrings": true,
@@ -25,5 +29,7 @@
     "arduino.useArduinoCli": true,
     "cSpell.language": "en,en-US",
     "cSpell.userWords": [ "Hauke", "Dämpfling", "Daempfling", "haukex" ],
-    "cSpell.enableFiletypes": [ "perl" ],
+    "cSpell.enableFiletypes": [
+        "perl"
+    ],
 }
