@@ -13,6 +13,10 @@ pushd "$TEMPDIR" >/dev/null
 #TEMPFILE="$( mktemp )"
 #trap 'rm -f "$TEMPFILE"' EXIT
 
+# Arrays:
+SOME_ARRAY=( "foo" "bar" "quz" )
+echo "${SOME_ARRAY[@]}"
+
 # Sources:
 # https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
 # https://stackoverflow.com/a/246128
