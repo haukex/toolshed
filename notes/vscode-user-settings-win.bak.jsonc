@@ -28,7 +28,7 @@
     "makefile.configureOnOpen": false,
     "arduino.useArduinoCli": true,
     "cSpell.language": "en,en-US",
-    "cSpell.userWords": [ "Hauke", "Dämpfling", "Daempfling", "haukex" ],
+    "cSpell.userWords": [ "Hauke", "Dämpfling", "Daempfling", "daempfling", "haukex" ],
     "cSpell.enableFiletypes": [
         "perl"
     ],
