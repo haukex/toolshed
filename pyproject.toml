@@ -3,7 +3,7 @@
 # pylance: ``# pyright: ignore [settingName]``
 # pylint:  ``# pylint: disable=setting-name``
 # flake8:  ``# noqa: CODE``
-# mypy:    ``# type: ignore [setting-name]``
+# mypy:    ``# type: ignore[setting-name]``
 
 # ##### ##### ##### ##### ##### https://github.com/microsoft/pyright/blob/main/docs/configuration.md ##### ##### ##### ##### #####
 
@@ -46,7 +46,8 @@ output = "coverage.xml"
 
 [tool.flake8]
 extend-ignore = [
-    "E701", # Multiple statements on one line (colon)
+    # NOTE the following is commented out because otherwise `coverage`'s reports aren't always correct.
+    #"E701", # Multiple statements on one line (colon)
     "E262", # Inline comment should start with '# '
     "E265", # Block comment should start with '# '
     "E201", # Whitespace after '('
@@ -70,6 +71,7 @@ max-line-length = 150
 # ##### ##### ##### ##### ##### https://mypy.readthedocs.io/en/stable/config_file.html ##### ##### ##### ##### #####
 
 [tool.mypy]
+enable_error_code = [ "ignore-without-code" ]
 ignore_missing_imports = true
 check_untyped_defs = true
 #disallow_incomplete_defs = true  # This would require a lot of `-> None` and such
@@ -127,7 +129,9 @@ inlinevar-naming-style = "snake_case"
 [tool.pylint.design]
 
 # Maximum number of arguments for function / method.
-max-args = 7
+max-args = 20
+# too-many-positional-arguments default is 5
+max-positional-arguments = 4
 
 # Maximum number of attributes for a class (see R0902).
 max-attributes = 10
@@ -178,7 +182,7 @@ max-module-lines = 500
 single-line-class-stmt = true
 
 # Allow the body of an if to be on the same line as the test if there is no else.
-# NOTE I used to set this to `true`, but apparently `coverage` may then incorrectly report 100% coverage.
+# NOTE the following is now `false` because otherwise `coverage`'s reports aren't always correct.
 single-line-if-stmt = false
 
 [tool.pylint.imports]
@@ -208,7 +212,8 @@ disable = [
     "missing-function-docstring",
     "missing-class-docstring",
     "too-few-public-methods",
-    "multiple-statements",
+    # NOTE the following is commented out because otherwise `coverage`'s reports aren't always correct.
+    #"multiple-statements",
     "fixme"]
 
 # Enable the message, report, category or checker with the given id(s). You can

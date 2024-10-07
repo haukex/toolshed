@@ -40,12 +40,14 @@ def hash_webdav(davurl :str, username :str, remoteroot :str) -> Generator[tuple[
     while listq:
         curdir = listq.pop()
         for ent in client.ls(str(curdir)):
+            assert isinstance(ent, dict)
             if ent["type"] == "file":
                 # note: AFAICT, Nextcloud's etags are based on mtime, inode, dev, and size; not content
                 # https://github.com/nextcloud/server/blob/5cf42ff2/lib/private/Files/Storage/Local.php#L556
                 h = hashlib.sha512()
                 with client.open(ent['name'], 'rb', chunk_size=DEFAULT_CHUNK_SIZE) as fh:
                     while buf := fh.read(DEFAULT_CHUNK_SIZE):
+                        assert isinstance(buf, bytes)
                         h.update(buf)
                 yield PurePosixPath(ent['name']).relative_to(remoteroot), ent['content_length'], h.digest()
             elif ent["type"] == "directory":
@@ -69,4 +71,5 @@ def main():
 
     parser.exit(0)
 
-if __name__=='__main__': main()
+if __name__=='__main__':
+    main()

@@ -48,7 +48,8 @@ with OpenKeyEx(HKEY_CURRENT_USER, r'SOFTWARE\SimonTatham\PuTTY\Sessions') as mai
         values = get_sess_as_dict(sesskey)
         assert tuple(values.keys()) == tuple(defaults.keys())
         for k in defaults:
-            if k in EXCLUDE_VALS: continue
+            if k in EXCLUDE_VALS:
+                continue
             if values[k] != defaults[k]:
                 assert values[k][1] == defaults[k][1]  # assume they'll have the same type
                 if input(f"{sessname!r} {k!r}: {values[k][0]!r} => {defaults[k][0]!r}? [yN] ").lower().startswith('y'):

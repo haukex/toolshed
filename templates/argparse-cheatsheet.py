@@ -37,8 +37,11 @@ def main(argv=None):
 
     paths = list( cmdline_rglob(autoglob(args.paths)) )
 
-    if args.verbose: print(f"{args=} {paths=}")  # call main function here
+    # call main function here (this is just an example)
+    if args.verbose:
+        print(f"{args=} {paths=}")
 
     parser.exit(0)
 
-if __name__=='__main__': main()
+if __name__=='__main__':
+    main()
