@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """Script to copy PuTTY settings from "Default Settings" to other session profiles.
 
 For example, you can make a change to the color settings in the Default Settings and then copy

@@ -3,7 +3,7 @@
 # This is *not* an actual list of requirements for this project,
 # just all the modules I find interesting or useful.
 
-# $ python3 -m pip install --upgrade --upgrade-strategy=eager pip wheel -r requirements.txt
+# $ python -m pip install --upgrade --upgrade-strategy=eager pip wheel -r requirements.txt
 
 # https://pip.pypa.io/en/latest/reference/requirements-file-format/#requirements-file-format
 # https://pip.pypa.io/en/latest/user_guide/#requirements-files
@@ -115,7 +115,7 @@ unishox2-py3; sys_platform != 'win32'
 # ##### Database & Serialization #####
 
 # https://pypi.org/project/pysqlite/
-# python3 -c 'import sqlite3; import pysqlite3; print(f"sqlite3={sqlite3.sqlite_version} pysqlite={pysqlite3.sqlite_version}")'
+# python -c 'import sqlite3; import pysqlite3; print(f"sqlite3={sqlite3.sqlite_version} pysqlite={pysqlite3.sqlite_version}")'
 #pysqlite3
 pysqlite3-binary; sys_platform != 'win32'
 

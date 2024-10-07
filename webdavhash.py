@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """Script to generate hashes for files on a WebDAV server.
 
 Author, Copyright, and License

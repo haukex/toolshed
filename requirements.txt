@@ -1,4 +1,4 @@
-# python3 -m pip install --upgrade --upgrade-strategy=eager pip wheel -r requirements.txt
+# python -m pip install --upgrade --upgrade-strategy=eager pip wheel -r requirements.txt
 igbpyutils >= 0.4.1
 colorama >= 0.4.6
 keyring >= 24.3.0
