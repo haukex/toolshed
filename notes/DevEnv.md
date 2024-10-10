@@ -20,15 +20,13 @@ These are my notes on how I like to set up my development environment.
     can always just read the files and install the requirements oneself.
   - DevPod is a nice open-source alternative for running the same Development Containers,
     including on a *local* Docker.
+    - Note: Accessing the Windows drive from WSL (including from Docker bind mounts, like DevPod
+      uses), is a major performance bottleneck. For example, `venv`s should not be placed in the
+      `/workspaces` mount.
     - At the time of writing, I haven't been using DevPod very long, but it seems good so far.
       Notes:
-      - Container initialization seems to be a bit slow sometimes?
-      - [`/workspaces` permissions](https://github.com/loft-sh/devpod/issues/1107) - Workaround
-        is to run ``sudo chown -R `id -u` /workspaces/*`` after building the container.
       - [Rebuild does not run dotfiles](https://github.com/loft-sh/devpod/issues/1279) - Workaround
         is that after a Rebuild, close VSCode, then use DevPod's "Open" to re-open it.
-      - [Where are the build logs?](https://github.com/loft-sh/devpod/issues/1278) - Not super
-        important, but could help with debugging.
 
 ## Windows
 
@@ -78,6 +76,14 @@ but otherwise, everything should work without them.
     try adding the option `--web-download`.
 - The `wsl --install -d ...` command must (also) be run by the non-admin user.
 - Reboots may be required.
+- After installing a new WSL distribution, check that the default user's
+  UID and GID are 1000, so they match (most) devcontainer images.
+- In the installed distro, add the following to `/etc/wsl.conf`:
+
+      [automount]
+      options = "metadata"
+
+  This allows one to use `chown` etc., like is possible from DevPod's bind mounts.
 
 ### Docker Desktop
 
@@ -109,6 +115,10 @@ but otherwise, everything should work without them.
 - It's also possible to run VSCode on a server entirely and access it via a browser.
   e.g. `code serve-web --host 127.0.0.1 --port 8000`
   (may need to open port 8000 in the firewall, and/or if using port forwarding, bind to `0.0.0.0`)
+
+### Others
+
+- The new Microsoft Terminal can be installed from the Windows Store.
 
 
 Author, Copyright, and License

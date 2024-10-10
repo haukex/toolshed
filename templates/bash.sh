@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euxo pipefail
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-# or just this part to change the cwd to the script's directory
+SCRIPT_DIR="$( CDPATH='' cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" && pwd )"
+#                        \^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^/
+# or just this part to change the cwd to the script's directory ^^^
 echo "SCRIPT_DIR=$SCRIPT_DIR"
 
 TEMPDIR="$( mktemp --directory )"
@@ -20,3 +20,4 @@ echo "${SOME_ARRAY[@]}"
 # Sources:
 # https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
 # https://stackoverflow.com/a/246128
+# https://stackoverflow.com/a/29835459
