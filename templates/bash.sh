@@ -1,21 +1,21 @@
 #!/bin/bash
 set -euxo pipefail
-SCRIPT_DIR="$( CDPATH='' cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" && pwd )"
+script_dir="$( CDPATH='' cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" && pwd )"
 #                        \^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^/
 # or just this part to change the cwd to the script's directory ^^^
-echo "SCRIPT_DIR=$SCRIPT_DIR"
+echo "script_dir=$script_dir"
 
-TEMPDIR="$( mktemp --directory )"
-trap 'set +e; popd >/dev/null 2>&1; rm -rf "$TEMPDIR"' EXIT
-pushd "$TEMPDIR" >/dev/null
+temp_dir="$( mktemp --directory )"
+trap 'set +e; popd >/dev/null; rm -rf "$temp_dir"' EXIT
+pushd "$temp_dir" >/dev/null
 
 # NOTE only one "trap ... EXIT" per script!
-#TEMPFILE="$( mktemp )"
-#trap 'rm -f "$TEMPFILE"' EXIT
+#temp_file="$( mktemp )"
+#trap 'rm -f "$temp_file"' EXIT
 
 # Arrays:
-SOME_ARRAY=( "foo" "bar" "quz" )
-echo "${SOME_ARRAY[@]}"
+some_array=( "foo" "bar" "quz" )  # or e.g. `gz_files=(*.gz)`
+echo "${some_array[@]}" len=${#some_array[@]}
 
 # Sources:
 # https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/

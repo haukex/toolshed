@@ -22,11 +22,11 @@ These are my notes on how I like to set up my development environment.
     including on a *local* Docker.
     - Note: Accessing the Windows drive from WSL (including from Docker bind mounts, like DevPod
       uses), is a major performance bottleneck. For example, `venv`s should not be placed in the
-      `/workspaces` mount.
+      `/workspaces` mount and I've started using `~/.venvs/project-name/.venv3.X`.
     - At the time of writing, I haven't been using DevPod very long, but it seems good so far.
       Notes:
-      - [Rebuild does not run dotfiles](https://github.com/loft-sh/devpod/issues/1279) - Workaround
-        is that after a Rebuild, close VSCode, then use DevPod's "Open" to re-open it.
+      - [Rebuild does not run dotfiles](https://github.com/loft-sh/devpod/issues/1279) -
+        Workaround is that after a Rebuild, close VSCode, then use DevPod's "Open" to re-open it.
 
 ## Windows
 

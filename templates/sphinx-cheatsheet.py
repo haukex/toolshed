@@ -50,6 +50,8 @@ class Foo(NamedTuple):
         .. warning:: This is how to make a warning.
             https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-warning
 
+        https://www.sphinx-doc.org/en/master/usage/domains/python.html#info-field-lists
+
         :param blah: Something
             (I'm not sure why Sphinx isn't autodetecting the type, but if I needed to I could write ``:param int blah:``.)
         :return: Other thing
