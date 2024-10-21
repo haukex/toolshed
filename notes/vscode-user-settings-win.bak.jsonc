@@ -1,6 +1,7 @@
 // This is a backup of my ~/AppData/Roaming/Code/User/settings.json
 {
     "telemetry.telemetryLevel": "off",
+    "window.titleBarStyle": "custom",
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.startupEditor": "none",
     "editor.minimap.showSlider": "always",
@@ -15,7 +16,7 @@
     "diffEditor.ignoreTrimWhitespace": true,
     "diffEditor.experimental.showMoves": true,
     "[python]": {
-        "diffEditor.ignoreTrimWhitespace": true
+        "diffEditor.ignoreTrimWhitespace": false
     },
     "python.analysis.inlayHints.functionReturnTypes": true,
     "python.analysis.inlayHints.variableTypes": true,
