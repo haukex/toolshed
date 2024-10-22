@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import argparse
 from igbpyutils.file import autoglob, cmdline_rglob
+# see also: https://igbpyutils.readthedocs.io/en/stable/file.html#igbpyutils.file.open_out
 
 def _arg_parser():
     # NOTE the first 'prog' argument here vvvvv is optional and defaults to sys.argv[0]
@@ -24,7 +25,10 @@ def _arg_parser():
     parser_demo.add_argument('-c', '--choice', help="choice of 'one' or 'two'", required=True, choices=['one','two'])
     parser_demo.add_argument('-f', '--float', help="a float (default: 10e6)", type=float, default=10e6)
     parser_demo.add_argument('something', choices=['foo', 'bar', 'quz'])  # required by default
-    parser_demo.add_argument('paths', metavar='PATH', help="files/dirs to process (recursive)", nargs="*")
+    parser_demo.add_argument('paths', metavar='PATH', help="files/dirs to process (recursive)", nargs="*")  # or nargs="+"; always a list
+    # Note: nargs="?" makes positional arguments optional (and doesn't result in a list)
+    # note this can be combined with fileinput: set nargs="*" and use `for line in fileinput.input(args.files)`
+    # but note fileinput is a little tricky with encoding on <3.10: https://github.com/haukex/pytoa5/blob/011cb0ea/toa5/to_csv/__init__.py#L74
 
     return parser
 
