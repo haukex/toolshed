@@ -4,6 +4,7 @@
     "window.titleBarStyle": "custom",
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.startupEditor": "none",
+    "workbench.externalBrowser": "firefox",
     "editor.minimap.showSlider": "always",
     "terminal.integrated.defaultProfile.windows": "Git Bash",
     "files.trimTrailingWhitespace": true,
