@@ -1,4 +1,4 @@
-// This is a backup of my ~/AppData/Roaming/Code/User/settings.json
+// This is a backup of my VSCode user settings.json
 {
     "telemetry.telemetryLevel": "off",
     "window.titleBarStyle": "custom",
@@ -22,8 +22,6 @@
     "python.analysis.inlayHints.variableTypes": true,
     "python.analysis.autoFormatStrings": true,
     "python.analysis.autoImportCompletions": false,
-    // https://github.com/microsoft/pylance-release/issues/6213
-    //"python.analysis.watchForLibraryChanges": false,   // doesn't seem to fix my Pylance 100% CPU problem
     "python.terminal.activateEnvInCurrentTerminal": true,
     "github-actions.remote-name": "github",
     "makefile.configureOnOpen": false,
