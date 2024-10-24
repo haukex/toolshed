@@ -8,63 +8,62 @@ I find interesting / useful.
 Compiling Python from Source on Linux
 -------------------------------------
 
-    sudo apt-get install build-essential pkg-config libssl-dev libsqlite3-dev libgdbm-dev libgdbm-compat-dev \
-        libc6-dev libbz2-dev libreadline-dev uuid-dev lzma-dev liblzma-dev libffi-dev tk-dev libncurses5-dev
-    sudo apt-get build-dep python3 idle-python3.11
+    # Build dependencies (look at output of `make` to see if modules aren't getting built):
+    sudo apt build-dep python3 python3-tk
+    sudo apt install build-essential pkg-config libssl-dev libsqlite3-dev libgdbm-dev \
+        libgdbm-compat-dev libc6-dev libbz2-dev libreadline-dev uuid-dev lzma-dev liblzma-dev \
+        libffi-dev tk-dev libncurses-dev sqlite3
 
-    umask 022
-    sudo mkdir -v /opt/python3.11.2
-    sudo chown -c `id -u`:`id -g` /opt/python3.11.2
+    umask 022  # in case you have a more restrictive umask set
 
-    wget https://www.python.org/ftp/python/3.11.2/Python-3.11.2.tar.xz
-    tar xJvf Python-3.11.2.tar.xz
+    # Download the XZ tarball from https://www.python.org/downloads/source/
+    tar xJvf Python-3.11.10.tar.xz
+    cd Python-3.11.10
 
-    cd Python-3.11.2
-    ./configure --prefix=/opt/python3.11.2 --enable-optimizations
-    make && make test && make install
+    sudo mkdir -v /opt/python3.11.10
+    # Only if your user should be owner: sudo chown -c `id -u`:`id -g` /opt/python3.11.10
 
-    sudo ln -snfv /opt/python3.11.2 /opt/python3
+    ./configure --prefix=/opt/python3.11.10 --enable-optimizations
+    make
+    make test
+    sudo make install   # `sudo` not needed if you did chown above
 
-    # in ~/.profile:
+    sudo ln -snfv /opt/python3.11.10 /opt/python3.11
+    sudo /opt/python3.11/bin/python3 -m pip install --upgrade --upgrade-strategy=eager pip wheel
+
+    # Linking to multiple Python versions:
+    for V in $(seq 9 13); do ln -snfv /opt/python3.$V/bin/python3.$V ~/.local/bin/; done
+
+    # Examples for ~/.profile or ~/.bashrc:
     test -d /opt/python3 && PATH="/opt/python3/bin${PATH:+:${PATH}}"
-
-    which python3
-    which pip3
-    which idle3
-    python3 --version
-
-    python3 -m pip install --upgrade pip wheel
-    # see requirements.txt for how to install those
-
-    # to add something to PYTHONPATH in .profile:
     export PYTHONPATH="$HOME/code/igbdatatools${PYTHONPATH:+:${PYTHONPATH}}"
 
-    # https://docs.python.org/3/download.html
-    wget https://docs.python.org/3/archives/python-3.11.2-docs-html.tar.bz2
-    tar xjvf python-3.11.2-docs-html.tar.bz2
-    mv python-3.11.2-docs-html /opt/python3/html
-    find /opt/python3/html -type d -exec chmod 755 '{}' + -o -exec chmod 644 '{}' +
+    # Example to download and extract docs from https://docs.python.org/3/download.html
+    wget https://docs.python.org/3/archives/python-3.13-docs-html.tar.bz2
+    tar xjvf python-3.13-docs-html.tar.bz2
+    # tar has 0660/0770 perms, fix that:
+    find python-3.13-docs-html -type d -exec chmod -c 755 '{}' + -o -exec chmod -c 644 '{}' +
+
+If a default `venv` is needed, `/opt/python3.13/bin/python -m venv ~/.venvs/default`
+and then add this to `.bashrc`: `source ~/.venvs/default/bin/activate`
 
 If building on an old Ubuntu LTS like 18.04 (bionic), see <https://github.com/python/cpython/issues/98973>:
 the `./configure` step needs to be prefixed with `TCLTK_LIBS="-ltk8.6 -ltcl8.6" TCLTK_CFLAGS="-I/usr/include/tcl8.6"`
 for tkinter to work (look for `checking for stdlib extension module _tkinter... yes`)
 
-An alternative I haven't tested yet: <https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa>
-(`sudo add-apt-repository ppa:deadsnakes/ppa`)
-
 Windows Notes
 -------------
 
 Getting `python3` to reference `python` on Win 10 (because `python3.exe`
-opens the Store), shown from Git Bash:
+opens the Store), shown from *Git Bash*:
 
     rm "$HOME/AppData/Local/Microsoft/WindowsApps/python3.exe"
     cd "$HOME/AppData/Local/Programs/Python/Python312/"
     cp python.exe python3.exe
 
-In addition, an alias per Python version can be set up via e.g.:
+In addition, an alias per Python version can be set up via e.g. (again *Git Bash*):
 
-    for PV in 8 9 10 11 12 13; do echo -e \#\!"/bin/bash\n~/AppData/Local/Programs/Python/Python3$PV/python \"\$@\"" >~/bin/python3.$PV; done
+    for PV in $(seq 9 13); do echo -e \#\!"/bin/bash\n~/AppData/Local/Programs/Python/Python3$PV/python \"\$@\"" >~/bin/python3.$PV; done
 
 In Windows 10, environment variables can be added for the current user via the
 Control Panel, in User Accounts you can find a setting "Change my environment
@@ -85,10 +84,10 @@ You can add `make` to Git Bash as follows:
   (e.g. `$HOME/AppData/Local/Programs/Git/mingw64`)
   without overwriting any files
 
-Windows Embeddable Python
--------------------------
+Windows Embeddable Python with Tk
+---------------------------------
 
-Note using [PyInstaller](https://pyinstaller.org/) may be easier depending on the project.
+**Note** using [PyInstaller](https://pyinstaller.org/) may be easier depending on the project.
 (e.g. `pyinstaller --onefile --name exename path/to/__main__.py`, possibly with `--noconsole`
 or `--hide-console minimize-early`)
 
@@ -126,7 +125,8 @@ or `--hide-console minimize-early`)
 Python Versions
 ---------------
 
-Some of the reasons I require the latest Python versions:
+Some of the reasons I require the latest Python versions,
+(basically just a few select highlights from the changelogs that I like):
 
 - Python 3.10
   - newer typing features like union type operator

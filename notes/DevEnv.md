@@ -28,6 +28,15 @@ These are my notes on how I like to set up my development environment.
       - [Rebuild does not run dotfiles](https://github.com/loft-sh/devpod/issues/1279) -
         Workaround is that after a Rebuild, close VSCode, then use DevPod's "Open" to re-open it.
 
+## Linux
+
+- Docker
+  - <https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository>
+  - <https://docs.docker.com/engine/install/linux-postinstall/>
+- [DevPod](https://devpod.sh/): via AppImage
+  - It sets up a `~/.local/share/applications/dev-pod-handler.desktop` that you can use as a basis
+    for a desktop entry (Notes: `Categories=Development` and `Icon=/path/to/devpod-logo.png`)
+
 ## Windows
 
 Focus: **Limited Administrator rights**, i.e. a few installations may require Administrator rights,
@@ -106,19 +115,23 @@ but otherwise, everything should work without them.
   [DevPod docs](https://devpod.sh/docs/developing-in-workspaces/dotfiles-in-a-workspace)).
 - Docker must be running for DevPod to work.
 
-### VSCode
-
-- Install from Microsoft Store or <https://code.visualstudio.com/>
-- Change the setting `telemetry.telemetryLevel` to `off`.
-- My personal user settings are in this repository in `vscode-user-settings-win.bak.jsonc`
-  (backup script is `bak-vscode-user-sett-win.py` also in this repo).
-- It's also possible to run VSCode on a server entirely and access it via a browser.
-  e.g. `code serve-web --host 127.0.0.1 --port 8000`
-  (may need to open port 8000 in the firewall, and/or if using port forwarding, bind to `0.0.0.0`)
-
 ### Others
 
 - The new Microsoft Terminal can be installed from the Windows Store.
+
+## General
+
+### VSCode
+
+- <https://code.visualstudio.com/>
+  - Linux: Install from `snap` or download
+  - Windows: Install from Microsoft Store or download
+- Change the setting `telemetry.telemetryLevel` to `off`.
+- My personal user settings are in this repository in `vscode-user-settings.bak.jsonc`
+  (backup script is `bak-vscode-user-sett.py` also in this repo).
+- It's also possible to run VSCode on a server entirely and access it via a browser.
+  e.g. `code serve-web --host 127.0.0.1 --port 8000`
+  (may need to open port 8000 in the firewall, and/or if using port forwarding, bind to `0.0.0.0`)
 
 
 Author, Copyright, and License
