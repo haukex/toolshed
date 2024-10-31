@@ -15,10 +15,12 @@
     "git.autofetch": true,
     "githubIssues.queries": [],  // Shows all open by default
     "githubPullRequests.queries": [],  // There's an "All Open" by default
+    "githubPullRequests.createOnPublishBranch": "never",
     "github-actions.remote-name": "github",
     // Currently no `ignoreAllSpaces`: https://github.com/Microsoft/vscode/issues/43026
     "diffEditor.ignoreTrimWhitespace": true,
     "diffEditor.experimental.showMoves": true,
+    "diffEditor.hideUnchangedRegions.enabled": true,
     "[python]": {
         "diffEditor.ignoreTrimWhitespace": false
     },
