@@ -13,6 +13,9 @@
     "git.inputValidation": true,
     "git.confirmSync": false,
     "git.autofetch": true,
+    "githubIssues.queries": [],  // Shows all open by default
+    "githubPullRequests.queries": [],  // There's an "All Open" by default
+    "github-actions.remote-name": "github",
     // Currently no `ignoreAllSpaces`: https://github.com/Microsoft/vscode/issues/43026
     "diffEditor.ignoreTrimWhitespace": true,
     "diffEditor.experimental.showMoves": true,
@@ -24,7 +27,6 @@
     "python.analysis.autoFormatStrings": true,
     "python.analysis.autoImportCompletions": false,
     "python.terminal.activateEnvInCurrentTerminal": true,
-    "github-actions.remote-name": "github",
     "makefile.configureOnOpen": false,
     "arduino.useArduinoCli": true,
     "cSpell.language": "en,en-US",
@@ -33,3 +35,4 @@
         "perl"
     ],
 }
+/* vim: set filetype=javascript ts=4 sw=4 expandtab : */
