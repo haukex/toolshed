@@ -8,48 +8,77 @@ I find interesting / useful.
 Compiling Python from Source on Linux
 -------------------------------------
 
-    # Build dependencies (look at output of `make` to see if modules aren't getting built):
+These instructions are for installing Python versions into `/opt`.
+
+### Build Dependencies
+
+Hint: Look at the output of `make` to see if modules aren't getting built.
+
     sudo apt build-dep python3 python3-tk
     sudo apt install build-essential pkg-config libssl-dev libsqlite3-dev libgdbm-dev \
         libgdbm-compat-dev libc6-dev libbz2-dev libreadline-dev uuid-dev lzma-dev liblzma-dev \
         libffi-dev tk-dev libncurses-dev sqlite3
 
+### Download & Install
+
+Download the XZ tarball from <https://www.python.org/downloads/source/>
+
+Now **either** use the `linux-py-install.sh` script from this repository, **or** use the following:
+
+#### Manual Install
+
+Needed in some cases, such as if individual steps fail, you need to specify additional options,
+or you want the installation to be owned by your user instead of `root`.
+
+The following two steps are *only* needed if your user should be the owner:
+
+    sudo mkdir -v /opt/python3.11.10
+    sudo chown -c `id -u`:`id -g` /opt/python3.11.10
+
+General steps follow:
+
     umask 022  # in case you have a more restrictive umask set
 
-    # Download the XZ tarball from https://www.python.org/downloads/source/
     tar xJvf Python-3.11.10.tar.xz
     cd Python-3.11.10
 
-    sudo mkdir -v /opt/python3.11.10
-    # Only if your user should be owner: sudo chown -c `id -u`:`id -g` /opt/python3.11.10
-
     ./configure --prefix=/opt/python3.11.10 --enable-optimizations
     make
+    # On 3.9 & 3.10: `make test TESTOPTS="-x test_socket"` (b/c the test hangs)
     make test
-    sudo make install   # `sudo` not needed if you did chown above
+    sudo make install   # `sudo` not needed if you did the `chown` step above
 
     sudo ln -snfv /opt/python3.11.10 /opt/python3.11
     sudo /opt/python3.11/bin/python3 -m pip install --upgrade --upgrade-strategy=eager pip wheel
 
-    # Linking to multiple Python versions:
-    for V in $(seq 9 13); do ln -snfv /opt/python3.$V/bin/python3.$V ~/.local/bin/; done
+### Other notes
 
-    # Examples for ~/.profile or ~/.bashrc:
+Creating local symlinks to multiple Python versions:
+
+    for V in $(seq 9 14); do ln -snfv /opt/python3.$V/bin/python3.$V ~/.local/bin/; done
+
+Examples for `~/.profile` or `~/.bashrc`:
+
     test -d /opt/python3 && PATH="/opt/python3/bin${PATH:+:${PATH}}"
+
     export PYTHONPATH="$HOME/code/igbdatatools${PYTHONPATH:+:${PYTHONPATH}}"
 
-    # Example to download and extract docs from https://docs.python.org/3/download.html
-    wget https://docs.python.org/3/archives/python-3.13-docs-html.tar.bz2
-    tar xjvf python-3.13-docs-html.tar.bz2
-    # tar has 0660/0770 perms, fix that:
-    find python-3.13-docs-html -type d -exec chmod -c 755 '{}' + -o -exec chmod -c 644 '{}' +
-
-If a default `venv` is needed, `/opt/python3.13/bin/python -m venv ~/.venvs/default`
+If a default `venv` is needed (e.g. you installed as `root`),
+do e.g. `/opt/python3.13/bin/python -m venv ~/.venvs/default`
 and then add this to `.bashrc`: `source ~/.venvs/default/bin/activate`
 
 If building on an old Ubuntu LTS like 18.04 (bionic), see <https://github.com/python/cpython/issues/98973>:
 the `./configure` step needs to be prefixed with `TCLTK_LIBS="-ltk8.6 -ltcl8.6" TCLTK_CFLAGS="-I/usr/include/tcl8.6"`
 for tkinter to work (look for `checking for stdlib extension module _tkinter... yes`)
+
+### Documentation
+
+Example to download and extract docs from <https://docs.python.org/3/download.html>
+
+    wget https://docs.python.org/3/archives/python-3.13-docs-html.tar.bz2
+    tar xjvf python-3.13-docs-html.tar.bz2
+    # tar has 0660/0770 perms, fix that:
+    find python-3.13-docs-html -type d -exec chmod -c 755 '{}' + -o -exec chmod -c 644 '{}' +
 
 Windows Notes
 -------------
@@ -57,8 +86,8 @@ Windows Notes
 Getting `python3` to reference `python` on Win 10 (because `python3.exe`
 opens the Store), shown from *Git Bash*:
 
-    rm "$HOME/AppData/Local/Microsoft/WindowsApps/python3.exe"
-    cd "$HOME/AppData/Local/Programs/Python/Python312/"
+    rm -v "$HOME/AppData/Local/Microsoft/WindowsApps/python3.exe"
+    cd "$HOME/AppData/Local/Programs/Python/Python313/"
     cp python.exe python3.exe
 
 In addition, an alias per Python version can be set up via e.g. (again *Git Bash*):
