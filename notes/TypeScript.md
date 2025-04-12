@@ -18,8 +18,8 @@ Node.js and TypeScript
 
 - Download the Node.js binary release (64-bit .zip) from <https://nodejs.org/en/download>
   and unpack, e.g. to `~/code/node-v...-win-x64`
-- Add the directory with the `npm` and `node` binaries to `PATH` via e.g. putting
-  this in your `~/.profile`: `export PATH="$HOME/node-path${PATH:+:${PATH}}"`
+- Add the directory with the `npm` and `node` binaries to `PATH` via
+  Cmd+R and running `rundll32.exe sysdm.cpl,EditEnvironmentVariables`
 
 ### Common
 

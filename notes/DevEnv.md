@@ -72,6 +72,7 @@ but otherwise, everything should work without them.
 - After installation, make sure that `which ssh` returns the Windows native `ssh.exe`,
   *not* `/usr/bin/ssh` or anything else. You may need to add that to `PATH`:
   `export PATH="/c/Windows/System32/OpenSSH${PATH:+:${PATH}}"`
+  e.g. in `.profile` (important that it appears before `/usr/bin` in `PATH`)
 
 ### WSL2
 
