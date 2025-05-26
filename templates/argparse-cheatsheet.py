@@ -6,6 +6,7 @@ from igbpyutils.file import autoglob, cmdline_rglob
 def _arg_parser():
     # NOTE the first 'prog' argument here vvvvv is optional and defaults to sys.argv[0]
     parser = argparse.ArgumentParser('argparse-cheatsheet', description='Template')
+    # more details can be added to the above via `epilog='...'`
     parser.add_argument('-v', '--verbose', help="more output", action="store_true")
 
     # the following defaults `foo` to `None` and doesn't generate a short equivalent to `--no-foo` (e.g. `-X`):
