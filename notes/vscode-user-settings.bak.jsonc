@@ -30,7 +30,7 @@
             "label": "All Open",
             "query": "default",
         }
-    ],  // There's an "All Open" by default
+    ],
     "githubPullRequests.createOnPublishBranch": "never",
     "githubPullRequests.remotes": [
         "origin",
