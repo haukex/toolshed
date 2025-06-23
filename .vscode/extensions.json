@@ -1,0 +1,18 @@
+{
+    "recommendations": [
+        "mads-hartmann.bash-ide-vscode",
+        "streetsidesoftware.code-spell-checker",
+        "ryanluker.vscode-coverage-gutters",
+        "ms-azuretools.vscode-docker",
+        "streetsidesoftware.code-spell-checker-german",
+        "github.vscode-github-actions",
+        "github.codespaces",
+        "github.vscode-pull-request-github",
+        "oderwat.indent-rainbow",
+        "ms-vscode.live-server",
+        "ms-vscode.makefile-tools",
+        "mechatroner.rainbow-csv",
+        "timonwong.shellcheck",
+        "tomoki1207.pdf"
+    ]
+}
