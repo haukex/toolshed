@@ -8,15 +8,41 @@
     "editor.minimap.showSlider": "always",
     "terminal.integrated.defaultProfile.windows": "Git Bash",
     "files.trimTrailingWhitespace": true,
+    "remote.autoForwardPortsSource": "hybrid",
     "remote.SSH.remotePlatform": { /* (content removed in backup) */ },
     "git.openRepositoryInParentFolders": "never",
     "git.inputValidation": true,
     "git.confirmSync": false,
     "git.autofetch": true,
-    "githubIssues.queries": [],  // Shows all open by default
-    "githubPullRequests.queries": [],  // There's an "All Open" by default
+    "git.blame.editorDecoration.enabled": false,
+    "githubIssues.queries": [
+        {
+            "label": "Open Issues",
+            "query": "repo:${owner}/${repository} is:issue state:open sort:updated-desc",
+        },
+        {
+            "label": "Closed Issues",
+            "query": "repo:${owner}/${repository} is:issue state:closed sort:updated-desc",
+        },
+    ],
+    "githubPullRequests.queries": [
+        {
+            "label": "All Open",
+            "query": "default",
+        }
+    ],  // There's an "All Open" by default
     "githubPullRequests.createOnPublishBranch": "never",
+    "githubPullRequests.remotes": [
+        "origin",
+        "upstream",
+        "github",
+    ],
     "github-actions.remote-name": "github",
+    "github.copilot.editor.enableCodeActions": false,
+    "github.copilot.renameSuggestions.triggerAutomatically": false,
+    "github.copilot.enable": {
+        "*": false,
+    },
     // Currently no `ignoreAllSpaces`: https://github.com/Microsoft/vscode/issues/43026
     "diffEditor.ignoreTrimWhitespace": true,
     "diffEditor.experimental.showMoves": true,
@@ -32,9 +58,20 @@
     "makefile.configureOnOpen": false,
     "arduino.useArduinoCli": true,
     "cSpell.language": "en,en-US",
-    "cSpell.userWords": [ "Hauke", "Dämpfling", "Daempfling", "daempfling", "haukex" ],
-    "cSpell.enableFiletypes": [
-        "perl"
+    "cSpell.userWords": [
+        "daempfling",
+        "Daempfling",
+        "Dämpfling",
+        "datalogger",
+        "Hauke",
+        "haukex"
     ],
+    "cSpell.enabledFileTypes": {
+        "perl": true,
+    },
+    "jupyter.askForKernelRestart": false,
+    "playwright.reuseBrowser": false,
+    "playwright.showTrace": false,
+    "playwright.pickLocatorCopyToClipboard": true,
 }
 /* vim: set filetype=javascript ts=4 sw=4 expandtab : */
