@@ -7,6 +7,13 @@
     "workbench.externalBrowser": "firefox",
     "editor.minimap.showSlider": "always",
     "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.profiles.windows": {
+        /* for some reason, recently WSL started using C:\WINDOWS\System32\bash.exe instead of wsl.exe, this is a workaround: */
+        "Ubuntu-24.04 (WSL)": {
+            "path": "C:\\Windows\\System32\\wsl.exe",
+            "args": ["-d", "Ubuntu-24.04"],
+        },
+    },
     "files.trimTrailingWhitespace": true,
     "remote.autoForwardPortsSource": "hybrid",
     "remote.SSH.remotePlatform": { /* (content removed in backup) */ },
