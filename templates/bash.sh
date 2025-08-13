@@ -6,12 +6,12 @@ script_dir="$( CDPATH='' cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" && pwd )"
 echo "script_dir=$script_dir"
 
 temp_dir="$( mktemp --directory )"
-trap 'set +e; popd >/dev/null; rm -rf "$temp_dir"' EXIT
+trap 'set +ex; popd >/dev/null; rm -rf "$temp_dir"' EXIT
 pushd "$temp_dir" >/dev/null
 
 # NOTE only one "trap ... EXIT" per script!
 #temp_file="$( mktemp )"
-#trap 'rm -f "$temp_file"' EXIT
+#trap 'set +ex; rm -f "$temp_file"' EXIT
 
 # Arrays:
 some_array=( "foo" "bar" "quz" )  # or e.g. `gz_files=(*.gz)`

@@ -92,7 +92,7 @@ opens the Store), shown from *Git Bash*:
 
 In addition, an alias per Python version can be set up via e.g. (again *Git Bash*):
 
-    for PV in $(seq 9 13); do echo -e \#\!"/bin/bash\n~/AppData/Local/Programs/Python/Python3$PV/python \"\$@\"" >~/bin/python3.$PV; done
+    for PV in $(seq 9 14); do echo -e \#\!"/bin/bash\n~/AppData/Local/Programs/Python/Python3$PV/python \"\$@\"" >~/bin/python3.$PV; done
 
 In Windows 10, environment variables can be added for the current user via the
 Control Panel, in User Accounts you can find a setting "Change my environment
