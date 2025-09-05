@@ -64,11 +64,9 @@ if ! make test TESTOPTS="$(printf -- "-x test_%s " "${test_excludes[@]}")"; then
 		echo "$ rm -rf '$temp_dir'"  # from trap EXIT above
 		test -n "$prev_link_targ" && echo "Consider doing: sudo rm -rf '$prev_link_targ' (the previous target of $link_name)"
 		exit 1
-	# else answer began with Y, so fall through to installation
-	fi
+	fi  # else answer began with Y (force installation), so fall through to installation
 	set -x
-# else make test succeeded
-fi
+fi  # else make test succeeded
 
 # finish installation
 # NOTE how the following commands are copied to the `echo`s above!

@@ -20,7 +20,7 @@ json = re.sub(r'(^\s*"remote.SSH.remotePlatform":\s+\{)[^}]+(\},\n)',
               lambda m: m.group(1)+' /* (content removed in backup) */ '+m.group(2), json, flags=re.S|re.M) \
 
 with bak_file.open('w', encoding='UTF-8', newline='\n') as fh:
-    fh.write(f"// This is a backup of my VSCode user settings.json\n")
+    fh.write("// This is a backup of my VSCode user settings.json\n")
     fh.write(json)
 
 subprocess.run(['git','diff','--color-words','--ignore-all-space',sett_json,bak_file], check=False)
