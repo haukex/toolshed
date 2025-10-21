@@ -62,6 +62,7 @@
     "python.analysis.autoFormatStrings": true,
     "python.analysis.autoImportCompletions": false,
     "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.REPL.enableREPLSmartSend": false,
     "makefile.configureOnOpen": false,
     "arduino.useArduinoCli": true,
     "cSpell.language": "en,en-US",
