@@ -28,30 +28,36 @@ from winreg import OpenKeyEx, HKEY_CURRENT_USER, KEY_WRITE, QueryInfoKey, EnumKe
 from urllib.parse import unquote
 from igbpyutils.iter import is_unique_everseen
 
-DEFAULT_KEY = 'Default%20Settings'
-EXCLUDE_VALS = ('HostName','PortNumber','UserName','Protocol')
+# spell-checker: ignore igbpyutils everseen Tatham
 
-with OpenKeyEx(HKEY_CURRENT_USER, r'SOFTWARE\SimonTatham\PuTTY\Sessions') as mainkey:
-    def get_sess_as_dict(sessionkey):
-        with OpenKeyEx(mainkey, sessionkey) as key:
-            sessvalues = [ EnumValue(key, vi) for vi in range(QueryInfoKey(key)[1]) ]
-        sessvalues.sort()
-        assert all(is_unique_everseen( x[0] for x in sessvalues ))  # no duplicate names
-        sessdict :dict[str, tuple[Any, int]] = { name: (data, typ) for name, data, typ in sessvalues }
-        return sessdict
-    sessions = [ EnumKey(mainkey, si) for si in range(QueryInfoKey(mainkey)[0]) ]
+DEFAULT_KEY = 'Default%20Settings'
+EXCLUDE_KEYS = {'HostName','PortNumber','UserName','Protocol'}
+
+with OpenKeyEx(HKEY_CURRENT_USER, r'SOFTWARE\SimonTatham\PuTTY\Sessions') as main_key:
+    def get_session_as_dict(s_key):
+        with OpenKeyEx(main_key, s_key) as key:
+            session_values = [ EnumValue(key, vi) for vi in range(QueryInfoKey(key)[1]) ]
+        session_values.sort()
+        assert all(is_unique_everseen( x[0] for x in session_values ))  # no duplicate names
+        session_dict :dict[str, tuple[Any, int]] = { name: (data, typ) for name, data, typ in session_values }
+        return session_dict
+    sessions = [ EnumKey(main_key, si) for si in range(QueryInfoKey(main_key)[0]) ]
     sessions.sort()
     sessions.remove(DEFAULT_KEY)
-    defaults = get_sess_as_dict(DEFAULT_KEY)
-    for sesskey in sessions:
-        sessname = unquote(sesskey)
-        values = get_sess_as_dict(sesskey)
-        assert tuple(values.keys()) == tuple(defaults.keys())
-        for k in defaults:
-            if k in EXCLUDE_VALS:
-                continue
+    defaults = get_session_as_dict(DEFAULT_KEY)
+    def_keys = set(defaults.keys())
+    for session_key in sessions:
+        session_name = unquote(session_key)
+        values = get_session_as_dict(session_key)
+        cur_keys = set(values.keys())
+        if def_keys != cur_keys:
+            if diff := def_keys-cur_keys:
+                print(f"Keys in default but not in {session_name!r}: {diff}")
+            if diff := cur_keys-def_keys:
+                print(f"Keys in {session_name!r} but not in default: {diff}")
+        for k in sorted( def_keys & cur_keys - EXCLUDE_KEYS ):
             if values[k] != defaults[k]:
                 assert values[k][1] == defaults[k][1]  # assume they'll have the same type
-                if input(f"{sessname!r} {k!r}: {values[k][0]!r} => {defaults[k][0]!r}? [yN] ").lower().startswith('y'):
-                    with OpenKeyEx(mainkey, sesskey, access=KEY_WRITE) as wrkey:
-                        SetValueEx(wrkey, k, 0, defaults[k][1], defaults[k][0])
+                if input(f"{session_name!r} {k!r}: {values[k][0]!r} => {defaults[k][0]!r}? [yN] ").lower().startswith('y'):
+                    with OpenKeyEx(main_key, session_key, access=KEY_WRITE) as wr_key:
+                        SetValueEx(wr_key, k, 0, defaults[k][1], defaults[k][0])
