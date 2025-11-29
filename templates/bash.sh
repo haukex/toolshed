@@ -23,6 +23,18 @@ for elem in "${some_array[@]}"; do echo "$elem"; done
 for i in "${!some_array[@]}"; do echo "$i: ${some_array[i]}"; done
 for (( i=${#some_array[@]}-1 ; i>=0 ; i-- )); do echo "$i: ${some_array[i]}"; done
 
+set +x
+read -n 1 -r -p "ARE YOU SURE? [yN] " REPLY
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    echo "You said yes."
+    set -x
+    # ...
+else
+    echo "You said no."
+fi
+
 # Sources:
 # https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
 # https://stackoverflow.com/a/246128
