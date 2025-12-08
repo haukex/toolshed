@@ -12,7 +12,6 @@ Node.js and TypeScript
 - `nvm install --lts`
   - On Ubuntu 18.04, `nvm install --lts v16` (because newer node versions need `GLIBC_2.28`)
 - `nvm install-latest-npm`
-- `nvm alias default node`
 
 ### Windows
 
