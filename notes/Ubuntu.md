@@ -5,11 +5,14 @@ If you get `cloud-init` warnings on boot:
 
     sudo touch /etc/cloud/cloud-init.disabled
 
+Or see my notes on removing it completely at
+<https://github.com/haukex/raspinotes/blob/main/BaseInstall.md>
+
 
 Author, Copyright, and License
 ------------------------------
 
-Copyright (c) 2024 Hauke Daempfling <haukex@zero-g.net>.
+Copyright (c) 2024-2025 Hauke Daempfling <haukex@zero-g.net>.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
