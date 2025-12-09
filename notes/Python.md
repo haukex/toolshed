@@ -173,7 +173,7 @@ Some of the reasons I require the latest Python versions,
 Author, Copyright, and License
 ------------------------------
 
-Copyright (c) 2022-2023 Hauke Daempfling <haukex@zero-g.net>
+Copyright (c) 2022-2025 Hauke Daempfling <haukex@zero-g.net>
 at the Leibniz Institute of Freshwater Ecology and Inland Fisheries (IGB),
 Berlin, Germany, <https://www.igb-berlin.de/>
 
