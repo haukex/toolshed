@@ -1,0 +1,14 @@
+
+# ##### Helper to open Windows-style .url files on Linux #####
+# `cp -lf url-handler.desktop ~/.local/share/applications/` then right-click the file and "Open With"
+# https://web.archive.org/web/20240128011848/http://www.lyberty.com/encyc/articles/tech/dot_url_format_-_an_unofficial_guide.html
+# Debugging: add `-MO=Deparse` and do `gtk-launch url-handler.desktop FILE.url`
+# It seems to me that `desktop-file-validate` (https://gitlab.freedesktop.org/xdg/desktop-file-utils/) doesn't validate correctly
+
+[Desktop Entry]
+Name=Open .url File in Browser
+# https://specifications.freedesktop.org/desktop-entry/latest/exec-variables.html  escaping fun but it works...
+Exec=bash -c -- "perl -wMstrict -0777 -ne \\" /^URL\\s*=\\s*(.+?)\\s*\\$/m and exec q/xdg-open/, \\\\$1 }{ die \\" -- %f"
+Type=Application
+Terminal=false
+MimeType=application/x-mswinurl;
