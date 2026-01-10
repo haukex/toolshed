@@ -47,6 +47,12 @@ Credentials
 - <https://github.com/haukex/dotfiles/blob/main/Git-Credentials.md>
   (is in that repo for historical reasons, I could probably merge it into this one someday)
 
+GitHub
+------
+
+- Skipping checks: Put e.g. `[skip actions]` anywhere in the message
+  ([reference](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs))
+
 See Also
 --------
 
