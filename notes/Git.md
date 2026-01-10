@@ -20,7 +20,7 @@ Filter
     - Set up via <https://github.com/IGB-Berlin/igb-fuchs/blob/main/dev/setup_git_filter.sh>
   - <https://github.com/haukex/de-en-dict/blob/main/git_commit_filter.pl>
     - Set up via <https://github.com/haukex/de-en-dict/blob/d2057c33/Makefile#L21>
-  - For both of the above, setting up via `git config --worktree` would probably be better
+    - Setting up via `git config --worktree` would probably be better
 - Other, older examples:
   - <https://github.com/haukex/htools/blob/master/htmlrescache>
   - <https://github.com/haukex/htools/blob/master/zip2pl>
@@ -31,7 +31,7 @@ LFS
 - `git lfs install`
 - `git lfs track '*.pdf' '*.png' '*.jpg' '*.zip'`
   - This sets up `.gitattributes` entries like `*.pdf filter=lfs diff=lfs merge=lfs -text`
-- `git lfs clone ...` (deprecated?)
+- `git lfs clone ...` is deprecated on newer Git versions; `git clone ...` is enough
 - Pruning:
   - `git config --worktree lfs.pruneremotetocheck github` (default `origin`)
   - `git lfs prune --recent --verify-remote`
@@ -44,23 +44,29 @@ LFS
 Credentials
 -----------
 
-- <https://github.com/haukex/dotfiles/blob/main/Git-Credentials.md>
+- [Git-Credentials.md in my dotfiles repo](https://github.com/haukex/dotfiles/blob/main/Git-Credentials.md)
   (is in that repo for historical reasons, I could probably merge it into this one someday)
 
-GitHub
-------
+Misc
+----
 
-- Skipping checks: Put e.g. `[skip actions]` anywhere in the message
+- To enable pushes into a non-bare repo, run this in the target repo:
+  `git config --worktree receive.denyCurrentBranch updateInstead`
+- To turn on execute bits on Windows: `git update-index --chmod=+x <filenames>`
+  (check via `git ls-files --stage`)
+- To force a merge commit to be created even when fast-forward is possible: `git merge --no-ff ...`
+- Skipping GitHub Actions runs: put `[skip actions]` anywhere in the commit message
   ([reference](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs))
 
 See Also
 --------
 
-- <https://github.com/haukex/dotfiles/blob/main/.gitconfig>
-- <https://github.com/haukex/dotfiles/blob/main/git_mysync.py>
+- [My personal `.gitconfig`](https://github.com/haukex/dotfiles/blob/main/.gitconfig)
+- [My `git mysync` tool](https://github.com/haukex/dotfiles/blob/main/git_mysync.py)
+  for syncing multiple repositories
 
 
-<!-- spell: ignore lfstext pruneremotetocheck textconv worktree -->
+<!-- spell: ignore lfstext pruneremotetocheck textconv worktree mysync -->
 
 Author, Copyright, and License
 ------------------------------
