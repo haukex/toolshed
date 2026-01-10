@@ -53,6 +53,7 @@
     },
     // Currently no `ignoreAllSpaces`: https://github.com/Microsoft/vscode/issues/43026
     "diffEditor.ignoreTrimWhitespace": true,
+    "diffEditor.renderSideBySide": true,
     "diffEditor.experimental.showMoves": true,
     "diffEditor.hideUnchangedRegions.enabled": true,
     "[python]": {
