@@ -80,7 +80,7 @@
         "perl": true,
     },
     "jupyter.askForKernelRestart": false,
-    "playwright.reuseBrowser": false,
+    "playwright.reuseBrowser": true,
     "playwright.showTrace": false,
     "playwright.pickLocatorCopyToClipboard": true,
 }
