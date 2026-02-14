@@ -6,6 +6,10 @@
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.startupEditor": "none",
     "workbench.externalBrowser": "firefox",
+    // TODO Later: currently no setting to open *all* links in integrated browser
+    "workbench.browser.openLocalhostLinks": true,
+    "livePreview.useIntegratedBrowser": true,
+    "simpleBrowser.useIntegratedBrowser": true,
     "editor.minimap.showSlider": "always",
     "terminal.integrated.defaultProfile.windows": "Git Bash",
     "terminal.integrated.profiles.windows": {
