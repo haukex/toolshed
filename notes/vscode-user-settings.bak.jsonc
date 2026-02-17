@@ -3,7 +3,9 @@
     "telemetry.telemetryLevel": "off",
     "window.titleBarStyle": "custom",
     "window.menuBarVisibility": "visible",
-    "workbench.colorTheme": "Default Dark Modern",
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredDarkColorTheme": "Default Dark Modern",
+    "workbench.preferredLightColorTheme": "Default Light Modern",
     "workbench.startupEditor": "none",
     "workbench.externalBrowser": "firefox",
     // TODO Later: currently no setting to open *all* links in integrated browser
