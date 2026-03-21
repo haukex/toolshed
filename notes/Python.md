@@ -27,6 +27,8 @@ Now **either** use the `linux-py-install.sh` script from this repository, **or**
 
 #### Manual Install
 
+*Note* I haven't tested this in a while since I mostly use my `linux-py-install.sh` now.
+
 Needed in some cases, such as if individual steps fail, you need to specify additional options,
 or you want the installation to be owned by your user instead of `root`.
 
@@ -83,16 +85,9 @@ Example to download and extract docs from <https://docs.python.org/3/download.ht
 Windows Notes
 -------------
 
-Getting `python3` to reference `python` on Win 10 (because `python3.exe`
-opens the Store), shown from *Git Bash*:
-
-    rm -v "$HOME/AppData/Local/Microsoft/WindowsApps/python3.exe"
-    cd "$HOME/AppData/Local/Programs/Python/Python313/"
-    cp python.exe python3.exe
-
-In addition, an alias per Python version can be set up via e.g. (again *Git Bash*):
-
-    for PV in $(seq 9 14); do echo -e \#\!"/bin/bash\n~/AppData/Local/Programs/Python/Python3$PV/python \"\$@\"" >~/bin/python3.$PV; done
+Python now provides the "Python Install Manager" (e.g. via the Microsoft Store), which makes
+installation of multiple Python versions much easier.
+See <https://docs.python.org/dev/using/windows.html#python-install-manager>.
 
 In Windows 10, environment variables can be added for the current user via the
 Control Panel, in User Accounts you can find a setting "Change my environment
@@ -113,10 +108,25 @@ You can add `make` to Git Bash as follows:
   (e.g. `$HOME/AppData/Local/Programs/Git/mingw64`)
   without overwriting any files
 
+### Older Notes
+
+The following seems to have been superseded by the Python Install Manager on Windows.
+
+Getting `python3` to reference `python` on Win 10 (because `python3.exe`
+opens the Store), shown from *Git Bash*:
+
+    rm -v "$HOME/AppData/Local/Microsoft/WindowsApps/python3.exe"
+    cd "$HOME/AppData/Local/Programs/Python/Python313/"
+    cp python.exe python3.exe
+
+In addition, an alias per Python version can be set up via e.g. (again *Git Bash*):
+
+    for PV in $(seq 9 14); do echo -e \#\!"/bin/bash\n~/AppData/Local/Programs/Python/Python3$PV/python \"\$@\"" >~/bin/python3.$PV; done
+
 Windows Embeddable Python with Tk
 ---------------------------------
 
-**Note** using [PyInstaller](https://pyinstaller.org/) may be easier depending on the project.
+**Update:** Using [PyInstaller](https://pyinstaller.org/) is likely easier than the following.
 (e.g. `pyinstaller --onefile --name exename path/to/__main__.py`, possibly with `--noconsole`
 or `--hide-console minimize-early`)
 
@@ -168,12 +178,19 @@ Some of the reasons I require the latest Python versions,
   - Python 3.11.1 for `http.server` security updates
 - Python 3.12
   - `NamedTemporaryFile(delete=True, delete_on_close=False)`
+- TODO: I should update this list.
+
+
+<!-- spell: ignore CFLAGS PYTHONPATH PYTHONWARNDEFAULTENCODING TCLTK TESTOPTS chdir contextlib libsqlite
+spell: ignore exename fromisoformat igbdatatools itertools libbz libc libgdbm libncurses libreadline
+spell: ignore ltcl lzma noconsole onefile pyicu pyinstaller rundll snfv stdlib sysdm tkinter venv venvs
+spell: ignore xjvf -->
 
 
 Author, Copyright, and License
 ------------------------------
 
-Copyright (c) 2022-2025 Hauke Daempfling <haukex@zero-g.net>
+Copyright (c) 2022-2026 Hauke Daempfling <haukex@zero-g.net>
 at the Leibniz Institute of Freshwater Ecology and Inland Fisheries (IGB),
 Berlin, Germany, <https://www.igb-berlin.de/>
 

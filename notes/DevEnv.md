@@ -68,7 +68,7 @@ but otherwise, everything should work without them.
   `main`, "Git from the command line and also from 3rd-party software", "Use the native Windows
   Secure Channel library", "Checkout as-is, commit Unix-style line endings" (`autocrlf=input`),
   "Use Windows' default console", use "Git Credential Manager"
-  - **Use (Tortise)Plink**, point to your `plink.exe`
+  - **Use (Tortoise)Plink**, point to your `plink.exe`
 - After installation, make sure that `which ssh` returns the Windows native `ssh.exe`,
   *not* `/usr/bin/ssh` or anything else. You may need to add that to `PATH`:
   `export PATH="/c/Windows/System32/OpenSSH${PATH:+:${PATH}}"`
@@ -119,13 +119,17 @@ but otherwise, everything should work without them.
 ### Others
 
 - The new Microsoft Terminal can be installed from the Windows Store.
+  - In case the Git Bash profile doesn't get set up or gets deleted accidentally:
+    - Command Line: `%USERPROFILE%\AppData\Local\Programs\Git\bin\bash.exe`
+    - Starting Directory: `%USERPROFILE%`
+    - Icon: `%USERPROFILE%\AppData\Local\Programs\Git\mingw64\share\git\git-for-windows.ico`
 
 ## General
 
 ### VSCode
 
 - <https://code.visualstudio.com/>
-  - Linux: Install from `snap` or download
+  - Ubuntu: Via PPA <https://code.visualstudio.com/docs/setup/linux>
   - Windows: Install from Microsoft Store or download
 - Change the setting `telemetry.telemetryLevel` to `off`.
 - My personal user settings are in this repository in `vscode-user-settings.bak.jsonc`
@@ -135,10 +139,13 @@ but otherwise, everything should work without them.
   (may need to open port 8000 in the firewall, and/or if using port forwarding, bind to `0.0.0.0`)
 
 
+<!-- spell: ignore Pagent USERPROFILE automount devpod rundll sysdm venv venvs -->
+
+
 Author, Copyright, and License
 ------------------------------
 
-Copyright (c) 2024-2025 Hauke Daempfling <haukex@zero-g.net>
+Copyright (c) 2024-2026 Hauke Daempfling <haukex@zero-g.net>
 at the Leibniz Institute of Freshwater Ecology and Inland Fisheries (IGB),
 Berlin, Germany, <https://www.igb-berlin.de/>
 

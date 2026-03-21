@@ -6,18 +6,18 @@ My Notes on Markdown
 
 According to <https://github.com/github/markup?tab=readme-ov-file#markups>,
 GitHub itself uses [Commonmarker](https://github.com/gjtorikian/commonmarker),
-which is actually just a wrapper of [Comrak](https://hrzn.ee/kivikakk/comrak#comrak-https-hrzn-ee-kivikakk-comrak).
+which is actually just a wrapper of "Comrak" (link broken).
 (which in turn states it is a "Rust port of [github's `cmark-gfm`](https://github.com/github/cmark)",
 however, the latter currently *appears* unmaintained to me).
 
-- <https://hrzn.ee/kivikakk/comrak#installation>
+- ~~<https://hrzn.ee/kivikakk/comrak#installation>~~ (link broken)
 - `comrak --gfm filename.md`
 
 
 Author, Copyright, and License
 ------------------------------
 
-Copyright (c) 2024 Hauke Daempfling <haukex@zero-g.net>.
+Copyright (c) 2024-2026 Hauke Daempfling <haukex@zero-g.net>.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

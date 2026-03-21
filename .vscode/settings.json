@@ -23,6 +23,7 @@
     "mypy-type-checker.reportingScope": "workspace",
     "mypy-type-checker.args": [ "--config-file", "${workspaceFolder}/pyproject.toml", ],
     "indentRainbow.ignoreErrorLanguages": [
+        "perl",
         "python",
         "markdown"
     ],
