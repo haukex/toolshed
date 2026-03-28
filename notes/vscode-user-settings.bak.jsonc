@@ -14,6 +14,7 @@
     "simpleBrowser.useIntegratedBrowser": true,
     "editor.minimap.showSlider": "always",
     "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.initialHint": false,
     "terminal.integrated.profiles.windows": {
         /* for some reason, recently WSL started using C:\WINDOWS\System32\bash.exe instead of wsl.exe, this is a workaround: */
         "Ubuntu-24.04 (WSL)": {
@@ -86,6 +87,7 @@
         "perl": true,
     },
     "jupyter.askForKernelRestart": false,
+    "notebook.output.scrolling": true,
     "playwright.reuseBrowser": true,
     "playwright.showTrace": false,
     "playwright.pickLocatorCopyToClipboard": true,
