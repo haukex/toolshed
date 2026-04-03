@@ -11,6 +11,9 @@ set -euo pipefail
 # for Dark/Light Modes"; this is the only way I've found so far to dynamically style the top bar. Also, "DM Theme
 # Changer" (dm-theme-changer@lynixx01.github.com) allows changing the mouse cursor color schemes.
 
+# Windows Terminal: In the settings, there is an "Open JSON File" option, in that JSON file under
+# .profiles.defaults: "colorScheme": { "dark": "Campbell", "light": "One Half Light" },
+
 cur_scheme="$( gsettings get org.gnome.desktop.interface color-scheme )"
 dbus-monitor --session "type='signal',interface='org.freedesktop.portal.Settings',member='SettingChanged'" | 
 while read -r line; do

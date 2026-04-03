@@ -123,6 +123,8 @@ but otherwise, everything should work without them.
     - Command Line: `%USERPROFILE%\AppData\Local\Programs\Git\bin\bash.exe`
     - Starting Directory: `%USERPROFILE%`
     - Icon: `%USERPROFILE%\AppData\Local\Programs\Git\mingw64\share\git\git-for-windows.ico`
+- For Gnome and Windows Terminal color profile switching, see `gnome-terminal-theme-switch.sh`
+  in this repository
 
 ## General
 
