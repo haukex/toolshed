@@ -4,6 +4,7 @@
     "window.titleBarStyle": "custom",
     "window.menuBarVisibility": "visible",
     "window.autoDetectColorScheme": true,
+    "update.showReleaseNotes": false,
     "workbench.preferredDarkColorTheme": "Dark Modern",
     "workbench.preferredLightColorTheme": "Light Modern",
     "workbench.startupEditor": "none",
