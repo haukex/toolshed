@@ -28,6 +28,7 @@
     "remote.autoForwardPortsSource": "hybrid",
     "remote.SSH.remotePlatform": { /* (content removed in backup) */ },
     "git.openRepositoryInParentFolders": "never",
+    "git.suggestSmartCommit": false,
     "git.inputValidation": true,
     "git.confirmSync": false,
     "git.autofetch": true,
