@@ -73,6 +73,7 @@
     "python.analysis.inlayHints.variableTypes": true,
     "python.analysis.autoFormatStrings": true,
     "python.analysis.autoImportCompletions": false,
+    "python.analysis.aiHoverSummaries": false,
     "python.terminal.activateEnvInCurrentTerminal": true,
     "python.REPL.enableREPLSmartSend": false,
     "makefile.configureOnOpen": false,
@@ -95,5 +96,6 @@
     "playwright.reuseBrowser": true,
     "playwright.showTrace": false,
     "playwright.pickLocatorCopyToClipboard": true,
+    "C_Cpp.copilotHover": "disabled",
 }
 /* vim: set filetype=javascript ts=4 sw=4 expandtab : */
