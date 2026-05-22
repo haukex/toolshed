@@ -15,6 +15,7 @@
     "livePreview.useIntegratedBrowser": true,
     "simpleBrowser.useIntegratedBrowser": true,
     "editor.minimap.showSlider": "always",
+    "editor.inlayHints.enabled": "offUnlessPressed",
     "terminal.integrated.defaultProfile.windows": "Git Bash",
     "terminal.integrated.initialHint": false,
     "terminal.integrated.profiles.windows": {
