@@ -97,5 +97,7 @@
     "playwright.showTrace": false,
     "playwright.pickLocatorCopyToClipboard": true,
     "C_Cpp.copilotHover": "disabled",
+    "chatgpt.commentCodeLensEnabled": false,
+    "chatgpt.runCodexInWindowsSubsystemForLinux": true,
 }
 /* vim: set filetype=javascript ts=4 sw=4 expandtab : */
