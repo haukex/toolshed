@@ -100,5 +100,6 @@
     "C_Cpp.copilotHover": "disabled",
     "chatgpt.commentCodeLensEnabled": false,
     "chatgpt.runCodexInWindowsSubsystemForLinux": true,
+    "chatgpt.composerEnterBehavior": "cmdIfMultiline",
 }
 /* vim: set filetype=javascript ts=4 sw=4 expandtab : */
