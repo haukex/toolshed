@@ -17,7 +17,7 @@ Hint: Look at the output of `make` to see if modules aren't getting built.
     sudo apt build-dep python3 python3-tk
     sudo apt install build-essential pkg-config libssl-dev libsqlite3-dev libgdbm-dev \
         libgdbm-compat-dev libc6-dev libbz2-dev libreadline-dev uuid-dev lzma-dev liblzma-dev \
-        libffi-dev tk-dev libncurses-dev libzstd-dev sqlite3
+        libffi-dev tk-dev libncurses-dev libzstd-dev zlib1g-dev sqlite3
 
 ### Download & Install
 
