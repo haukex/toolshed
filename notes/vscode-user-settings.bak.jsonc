@@ -16,9 +16,15 @@
     "simpleBrowser.useIntegratedBrowser": true,
     "editor.minimap.showSlider": "always",
     "editor.inlayHints.enabled": "offUnlessPressed",
-    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.defaultProfile.windows": "Git Bash (User)",
     "terminal.integrated.initialHint": false,
     "terminal.integrated.profiles.windows": {
+        /* In case there are multiple Git installations, use the one we have control over */
+        "Git Bash": null,  // disable the default autodetected VSCode profile
+        "Git Bash (User)": {
+            "path": "${env:LOCALAPPDATA}\\Programs\\Git\\bin\\bash.exe",
+            "args": ["--login", "-i"],
+        },
         /* for some reason, recently WSL started using C:\WINDOWS\System32\bash.exe instead of wsl.exe, this is a workaround: */
         "Ubuntu-24.04 (WSL)": {
             "path": "C:\\Windows\\System32\\wsl.exe",
@@ -28,6 +34,11 @@
     "files.trimTrailingWhitespace": true,
     "remote.autoForwardPortsSource": "hybrid",
     "remote.SSH.remotePlatform": { /* (content removed in backup) */ },
+    "git.path": [
+        /* In case there are multiple Git installations, use the one we have control over */
+        /* NOTICE: Expand LOCALAPPDATA manually! */ "%LOCALAPPDATA%\\Programs\\Git\\cmd\\git.exe",
+        "/usr/bin/git",
+    ],
     "git.openRepositoryInParentFolders": "never",
     "git.suggestSmartCommit": false,
     "git.inputValidation": true,
@@ -99,7 +110,9 @@
     "playwright.pickLocatorCopyToClipboard": true,
     "C_Cpp.copilotHover": "disabled",
     "chatgpt.commentCodeLensEnabled": false,
-    "chatgpt.runCodexInWindowsSubsystemForLinux": true,
-    "chatgpt.composerEnterBehavior": "cmdIfMultiline",
+    "chatgpt.runCodexInWindowsSubsystemForLinux": false,
+    "chatgpt.composerEnterBehavior": "cmdAlways",
+    "chatgpt.followUpQueueMode": "steer",
+    "chatgpt.localeOverride": "en-US",
 }
 /* vim: set filetype=javascript ts=4 sw=4 expandtab : */
