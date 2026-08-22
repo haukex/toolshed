@@ -23,9 +23,8 @@ with sett_json.open(encoding='UTF-8') as fh:
 json = re.sub(r'(^\s*"remote.SSH.remotePlatform":\s+\{)[^}]+(\},\n)',
               lambda m: m.group(1)+' /* (content removed in backup) */ '+m.group(2), json, flags=re.S|re.M)
 
-appdata = os.getenv('LOCALAPPDATA')
-assert appdata is not None
-json = json.replace('"'+appdata.replace('\\','\\\\'), '/* NOTICE: Expand LOCALAPPDATA manually! */ "%LOCALAPPDATA%')
+if appdata := os.getenv('LOCALAPPDATA'):
+    json = json.replace('"'+appdata.replace('\\','\\\\'), '/* NOTICE: Expand LOCALAPPDATA manually on Windows! */ "%LOCALAPPDATA%')
 
 with bak_file.open('w', encoding='UTF-8', newline='\n') as fh:
     fh.write("// This is a backup of my VSCode user settings.json\n")

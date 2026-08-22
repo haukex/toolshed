@@ -36,7 +36,7 @@
     "remote.SSH.remotePlatform": { /* (content removed in backup) */ },
     "git.path": [
         /* In case there are multiple Git installations, use the one we have control over */
-        /* NOTICE: Expand LOCALAPPDATA manually! */ "%LOCALAPPDATA%\\Programs\\Git\\cmd\\git.exe",
+        /* NOTICE: Expand LOCALAPPDATA manually on Windows! */ "%LOCALAPPDATA%\\Programs\\Git\\cmd\\git.exe",
         "/usr/bin/git",
     ],
     "git.openRepositoryInParentFolders": "never",
