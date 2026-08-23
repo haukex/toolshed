@@ -13,7 +13,7 @@ class Bar:
     .. py:attribute:: foo
         :type: str
 
-        I'm not sure why Sphix isn't autodetecting the type of the attribute.
+        I'm not sure why Sphinx isn't autodetecting the type of the attribute.
     """
     def __init__(self, foo :str):
         self.foo :str = foo
@@ -25,6 +25,7 @@ class Foo(NamedTuple):
         """Just a test.
 
         `This is an external link <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#hyperlinks>`_
+        (note the space before the ``<`` is required)
 
         Verbatim blocks are indented and introduced by a double colon. ::
 
