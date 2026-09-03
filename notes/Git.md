@@ -41,6 +41,17 @@ LFS
 - If there's a file that shouldn't be added to LFS (again example using CSV files):
   - In `.gitattributes`: `small.csv !filter !diff !merge text`
 
+Browsing
+--------
+
+- `tig --all` - repo browser; select a commit and press `t` to browse the tree; `h` for help
+  - Edit `~/.tigrc` and add the line
+    `bind tree E !sh -c 'git cat-file blob "$1" >"$2"' _ "%(blob)" "%(prompt Save as: )"`,
+    then there is an `E` command to export the currently selected file
+- Manual: `git cat-file -p <hash>` to browse, `git hash-object <filename>` or
+  `git hash-object --stdin` to hash a file as a `blob`, then `git log --find-object=<hash>`
+  to find commits where occurrences of that file change.
+
 Credentials
 -----------
 
