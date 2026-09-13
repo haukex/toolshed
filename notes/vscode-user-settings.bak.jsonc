@@ -110,9 +110,11 @@
     "playwright.pickLocatorCopyToClipboard": true,
     "C_Cpp.copilotHover": "disabled",
     "chatgpt.commentCodeLensEnabled": false,
-    "chatgpt.runCodexInWindowsSubsystemForLinux": false,
+    "chatgpt.runCodexInWindowsSubsystemForLinux": true,
     "chatgpt.composerEnterBehavior": "cmdAlways",
     "chatgpt.followUpQueueMode": "steer",
     "chatgpt.localeOverride": "en-US",
+    "chat.tips.enabled": false,
+    "continue.enableTabAutocomplete": false,
 }
 /* vim: set filetype=javascript ts=4 sw=4 expandtab : */
