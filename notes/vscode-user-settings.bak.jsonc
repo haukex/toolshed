@@ -34,6 +34,9 @@
     "files.trimTrailingWhitespace": true,
     "remote.autoForwardPortsSource": "hybrid",
     "remote.SSH.remotePlatform": { /* (content removed in backup) */ },
+    "security.allowedUNCHosts": [
+        "wsl.localhost"
+    ],
     "git.path": [
         /* In case there are multiple Git installations, use the one we have control over */
         /* NOTICE: Expand LOCALAPPDATA manually on Windows! */ "%LOCALAPPDATA%\\Programs\\Git\\cmd\\git.exe",
@@ -78,6 +81,7 @@
     "diffEditor.renderSideBySide": true,
     "diffEditor.experimental.showMoves": true,
     "diffEditor.hideUnchangedRegions.enabled": true,
+    "diffEditor.useInlineViewWhenSpaceIsLimited": true,
     "[python]": {
         "diffEditor.ignoreTrimWhitespace": false
     },
@@ -115,6 +119,6 @@
     "chatgpt.followUpQueueMode": "steer",
     "chatgpt.localeOverride": "en-US",
     "chat.tips.enabled": false,
-    "continue.enableTabAutocomplete": false,
+    "chat.titleBar.openInAgentsWindow.enabled": false,
 }
 /* vim: set filetype=javascript ts=4 sw=4 expandtab : */
